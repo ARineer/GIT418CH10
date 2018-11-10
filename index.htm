@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--
+			JavaScript 6th Edition
+			Chapter 1
+			Individual Case Project
+			
+			Author: Amanda Rineer
+			Date: 1/17/18
+			
+			Filename: index.htm
+		-->
+		<meta charset="UTF-8">
+		<link href="styles.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<script src="modernizr.custom.05819.js"></script>
+		<title>Healthy Lifestyles</title>
+	</head>
+	<body>
+		<!-- Container for the entire webpage -->
+		<div id="home_background"> 
+			<header>
+				<!-- Logo found online and edited by myself -->
+				<a href="index.htm"><img id="healthylifestyle_logo" src="healthylifestyle_logo.png" alt="Healthy Lifestyle Logo"></a>
+			</header>
+			<nav>
+				<ul>
+					<li><a href="index.htm">HOME</a></li>
+					<li><a href="workouts.htm">WORKOUTS</a></li>
+					<li><a href="nutrition.htm">NUTRITION</a></li>
+					<li><a href="recipes.htm">RECIPES</a></li>
+					<li><a href="security.html">WEB SECURITY</a></li>
+					<li><a href="security2.html">WEB SECURITY 2.0</a></li>
+				</ul>
+			</nav>
+			<main>
+				<section id="home_page_header">
+					<h1>Healthy living, healthy lifestyle</h1>
+					<p>The first step starts with you</p>
+				</section>
+			</main>
+			<article id="home_article" style="padding-bottom: 100px;"> <!-- padding inline for future update per index content change (new Case Project Chapter) -->
+				<div align="center">
+					<p class="fs14">About this website: I began this site in GIT417, contuining in GIT418 as my Case Project. I am using the JavaScript techniques learned to implement in to a healthy living and lifestyle website.</p>
+					<h2>Chapter 10 Case Project</h2>
+				</div>
+				<div class ="body">
+					<section class="headerelement">
+						<h1>Web Security</h1>
+					</section>
+					<article class="articleBox">
+						<div align="center">
+							<p id="latitude"></p>
+							<p id="longitude"></p>
+							<button onclick="showLocation()">Show Location</button>
+						</div>
+						<p>When using the internet, there are several factors to consider in regards to internet safety and web security. Did you know that websites are often vulnerable and subject to security risks? This also applies to networks you connect to when browsing the internet. Unsafe connection and poor website development can lead to loss of private data, stolen information, hacking, cyber attacks, and much more.</p>
+						<p>"Web security" has two parts, the first is the internal part an the second is the external and public part. When connecting to any public network or even private networks such as your home or work connection, it is important to ensure the website you are accessing is "safe" before entering any information. How can you tell a website connection is private? The website URL will either be completely green, have an "HTTPS" in the beginning of the URL, or there will be a green padlock next to the URL. This indicates that your connection is safe, and that there is a secure connection between your browser and the server</p>
+						<p>Websites hold substantial amounts of information, from your IP address, your browser status, and even any financial or personal data entered in to the website. With this, it is important to ensure that you have a safe connection and that the code written on a website is bug-free and written to high standards to prevent any of this personal information from leaking.</p>
+						<p>Using Navigator Object and Screen Object, the following displays information about your connection, screen, and browser information.</p>
+							<section id="security_info">
+								<p id="p1"></p>
+								<p id="p2"></p>
+								<p id="p3"></p>
+								<p id="p4"></p>
+								<p id="p5"></p>
+								<p id="p6"></p>
+								<p id="p7"></p>
+								<p id="p8"></p>
+								<p id="p9"></p>
+							</section>
+						<p>The following links are available for more information regarding web security and cyber security.</p>
+						<ul>
+							<li><a href="https://www.beyondsecurity.com/web-security-and-web-scanning.html">Web Security Basics</a></li>
+							<li><a href="https://www.dhs.gov/how-do-i/protect-myself-cyber-attacks">Protect Yourself From Attacks</a></li>
+							<li><a href="http://www.umuc.edu/academic-programs/cyber-security/about.cfm">Introduction to Cyber Security</a></li>
+							<li><a href="https://www.paloaltonetworks.com/cyberpedia/what-is-cyber-security">What is Cybersecurity?</a></li>
+							<li><a href="https://www.pickaweb.co.uk/kb/what-is-https/">What is HTTPS?</a></li>
+						</ul>
+					</article>
+				</div>
+			</article>
+			<footer id="home_footer">
+				<p>Copyright &copy; 2018 Amanda Rineer. For educational use only.</p>
+				<a href="mailto:arineer1@asu.edu">arineer1@asu.edu</a>
+			</footer>
+		</div>
+		<script>
+			//Display current web browser name
+			document.getElementById("p1").innerHTML = "Web browser name: " + navigator.appName;
+
+			//display the current running browser version
+			document.getElementById("p2").innerHTML = "Web browser version: " + navigator.appVersion;
+
+			//display the current operating platform (i.e. Windows/Mac/etc.)
+			document.getElementById("p3").innerHTML = "Operating platform: " + navigator.platform;
+
+			//display the current user agent of the browser
+			document.getElementById("p4").innerHTML = "User agent: " + navigator.userAgent;
+
+			//display if there is a connection or not
+			document.getElementById("p5").innerHTML = "Connection: " + navigator.onLine;
+
+			//display the height of the monitor/window
+			document.getElementById("p6").innerHTML = "Window height: " + screen.height;
+
+			//display the width of the monitor/window
+			document.getElementById("p7").innerHTML = "Window width: " + screen.width;
+
+			//display the color depth of the monitor/window
+			document.getElementById("p8").innerHTML = "Color Depth: " + screen.colorDepth;
+
+			//display the pixel depth of the monitor/window
+			document.getElementById("p9").innerHTML = "Pixel Depth: " + screen.pixelDepth;
+
+			//Variables for latitude and longitude
+			var latitude = document.getElementById("latitude");
+			var longitude = document.getElementById("longitude");
+
+			//Function to call location on button click
+			function showLocation() {
+				//Grabs current location and calls showPosition function
+			    navigator.geolocation.getCurrentPosition(showPosition);
+			}
+
+			//Function to display the latitude and longitude of current position
+			function showPosition(position) {
+			    latitude.innerHTML = "Latitude: " + position.coords.latitude;
+			    longitude.innerHTML = "Longitude: " + position.coords.longitude;
+			}
+		</script>
+	</body>
+</html>
